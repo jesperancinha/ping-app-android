@@ -1,0 +1,46 @@
+apply plugin: 'android'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.newrelic.agent.android:agent-gradle-plugin:3.264.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'android'
+apply plugin: 'newrelic'
+
+dependencies {
+    compile 'com.newrelic.agent.android:android-agent:3.264.0'
+}
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 9
+        versionCode 4
+        versionName "3.1"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:gridlayout-v7:19.0.1'
+    compile 'com.android.support:support-v4:19.0.1'
+    compile 'com.android.support:appcompat-v7:19.0.1'
+}
