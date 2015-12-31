@@ -1,4 +1,4 @@
-package com.joai.ping2.util;
+package com.steelzack.ping.util;;
 
 import android.app.Activity;
 import android.view.View;
