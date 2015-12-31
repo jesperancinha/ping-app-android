@@ -1,4 +1,4 @@
-package com.joai.ping2.util;
+package com.steelzack.ping.util;;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

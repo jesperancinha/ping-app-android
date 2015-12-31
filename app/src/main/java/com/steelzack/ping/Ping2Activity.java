@@ -1,7 +1,7 @@
-package com.joai.ping2;
+package com.steelzack.ping;
 
 import com.newrelic.agent.android.NewRelic;
-import com.joai.ping2.util.SystemUiHider;
+import com.steelzack.ping.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
