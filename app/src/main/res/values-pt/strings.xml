@@ -7,5 +7,6 @@
     <string name="please_insert_dns">Por favor introduza o seu URL/DNS</string>
     <string name="calculate_IP">Calcular IP</string>
     <string name="author_text">por Joao FSE (@jofisaes)</string>
+    <string name="calculate_AllIp">Calcular todas as IPs</string>
 
 </resources>

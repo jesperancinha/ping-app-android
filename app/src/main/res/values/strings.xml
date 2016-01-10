@@ -7,9 +7,7 @@
     <string name="please_insert_dns">Please Insert your URL/DNS</string>
     <string name="calculate_IP">Calculate IP</string>
     <string name="author_text">by Joao FSE (@jofisaes)</string>
-    <string name="title_activity_main">MainActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="calculate_AllIp">Calculate all IPs</string>
 
 </resources>
