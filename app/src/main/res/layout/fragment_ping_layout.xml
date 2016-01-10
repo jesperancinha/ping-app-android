@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#36faf1"
-    tools:context="com.steelzack.ping.Ping2Activity"
+    tools:context="com.steelzack.ping.Pinddg2Activity"
     android:focusable="true">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -27,26 +27,6 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="false"
         android:background="@drawable/ping2_back">
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <Button
-                android:id="@+id/btnExit"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"

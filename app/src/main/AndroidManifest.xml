@@ -3,19 +3,19 @@
     package="com.steelzack.ping"
     android:versionCode="3"
     android:versionName="3.1">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:debuggable="false">
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:theme="@style/AppTheme">
         <activity
-            android:name="com.steelzack.ping.Ping2Activity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme" >
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
