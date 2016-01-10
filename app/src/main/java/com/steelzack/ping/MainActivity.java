@@ -15,5 +15,6 @@ public class MainActivity extends FragmentActivity {
         pingPager = (ViewPager)findViewById(R.id.ping_pager);
         SwipeAdapter swipeAdapter = new SwipeAdapter(getSupportFragmentManager());
         pingPager.setAdapter(swipeAdapter);
+        getActionBar().setTitle(R.string.app_name);
     }
 }

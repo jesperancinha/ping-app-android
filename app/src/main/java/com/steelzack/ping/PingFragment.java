@@ -1,23 +1,63 @@
 package com.steelzack.ping;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.steelzack.ping.util.SystemUiHider;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PingFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PingFragment#newInstance} factory method to
- * create an instance of this fragment.
+ *
  */
 public class PingFragment extends android.support.v4.app.Fragment {
+
+    /**
+     * Whether or not the system UI should be auto-hidden after
+     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
+     */
+    private static final boolean AUTO_HIDE = true;
+
+    /**
+     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
+     * user interaction before hiding the system UI.
+     */
+    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+
+    /**
+     * If set, will toggle the system UI visibility upon interaction. Otherwise,
+     * will show the system UI visibility upon interaction.
+     */
+    private static final boolean TOGGLE_ON_CLICK = true;
+
+    /**
+     * The flags to pass to {@link SystemUiHider#getInstance}.
+     */
+    private static final int HIDER_FLAGS = SystemUiHider.FLAG_HIDE_NAVIGATION;
+
+    /**
+     * The instance of the {@link SystemUiHider} for this activity.
+     */
+    private SystemUiHider mSystemUiHider;
+
+    private EditText editText = null;
+
+    private Button btnCalculate = null;
+
+    private TextView textView = null;
+
+    private TextView textResult = null;
+
+    private TextView textComment = null;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -51,17 +91,54 @@ public class PingFragment extends android.support.v4.app.Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+        View mainView = inflater.inflate(R.layout.fragment_ping_layout, container, false);
+        final View contentView = mainView.findViewById(R.id.fullscreen_content);
+
+
+
+        // Upon interacting with UI controls, delay any scheduled hide()
+        // operations to prevent the jarring behavior of controls going away
+        // while interacting with the UI.
+        editText = (EditText) mainView.findViewById(R.id.editDNS);
+        btnCalculate = (Button) mainView.findViewById(R.id.btnCalculate);
+        textView = (TextView) mainView.findViewById(R.id.textView);
+        textResult = (TextView) mainView.findViewById(R.id.txtResult);
+        textComment = (TextView) mainView.findViewById(R.id.textComment);
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                long nowStamp = System.currentTimeMillis();
+                String ipAddress = editText.getText().toString();
+
+                try {
+                    InetAddress inet = InetAddress.getByName(ipAddress);
+                    textResult.setText(String.format("Adress:%s\nHostname:%s", inet.getHostAddress(), inet.getHostName()));
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                    textResult.setText(String.format("Host not found!\n%s", e.getMessage()));
+                }
+                long endStamp = System.currentTimeMillis();
+                textComment.setText(String.format("Ping lasted %d miliseconds", (endStamp - nowStamp)));
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ping_layout, container, false);
+        return mainView;
     }
 }
