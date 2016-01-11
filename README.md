@@ -6,7 +6,7 @@ Google play home page:
 
 App page:
 
-* https://play.google.com/store/apps/details?id=com.joai.ping2&hl=en
+* https://play.google.com/store/apps/details?id=com.steelzack.ping&hl=en
 
 Notes:
 
