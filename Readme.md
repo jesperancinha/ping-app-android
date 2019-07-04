@@ -9,7 +9,7 @@ Please read our [Privacy Policy](Privacy_Policy.md)
 ## License
 
 ```
-Copyright 2015-2019 João Esperancinha (jesperancinha)
+Copyright 2014-2019 João Esperancinha (jesperancinha)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
