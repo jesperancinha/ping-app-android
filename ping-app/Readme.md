@@ -1,17 +1,4 @@
-# Ping App
-
-Please read our [Privacy Policy](Privacy_Policy.md)
-
-![alt text](ping-app/src/main/res/drawable-xxxhdpi/ic_launcher.png "Logo xxxhdpi")
-![alt text](ping-app/src/main/res/drawable-xxhdpi/ic_launcher.png "Logo xxhdpi")
-![alt text](ping-app/src/main/res/drawable-xhdpi/ic_launcher.png "Logo xhdpi")
-![alt text](ping-app/src/main/res/drawable-hdpi/ic_launcher.png "Logo hdpi")
-![alt text](ping-app/src/main/res/drawable-mdpi/ic_launcher.png "Logo mdpi")
-![alt text](ping-app/src/main/res/drawable-ldpi/ic_launcher.png "Logo ldpi")
-
-## Status
-
-***Under development***
+# ping-app
 
 ## About me
 
