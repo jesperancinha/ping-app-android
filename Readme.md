@@ -7,6 +7,10 @@
 
 [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2186518c5c2f4adb8101653f83820ea6)](https://www.codacy.com/gh/jesperancinha/ping-app-android/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/ping-app-android&amp;utm_campaign=Badge_Grade)
+
+[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/ping-app-android/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/ping-app-android?branch=master)
+
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/ping-app-android.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/ping-app-android.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/ping-app-android.svg)](#)
