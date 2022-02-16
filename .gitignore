@@ -14,5 +14,5 @@ build
 # This is the release signed package
 app/app-release.apk
 
-,idea
+.idea
 *.iml
