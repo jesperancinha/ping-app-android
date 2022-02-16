@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.steelzack.ping.R;
-import com.sun.tools.javac.util.JCDiagnostic;
-import com.sun.tools.javac.util.JCDiagnostic.Fragment;
+
 import org.jesperancinha.ping.util.SystemUiHider;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import android.app.Fragment;
 
 /**
  *
@@ -100,7 +100,6 @@ public class PingFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-
     }
 
     @Override
@@ -110,7 +109,6 @@ public class PingFragment extends Fragment {
 
         View mainView = inflater.inflate(R.layout.fragment_ping_layout, container, false);
         final View contentView = mainView.findViewById(R.id.fullscreen_content);
-
 
 
         // Upon interacting with UI controls, delay any scheduled hide()

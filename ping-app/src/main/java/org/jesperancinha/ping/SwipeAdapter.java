@@ -1,12 +1,13 @@
 package org.jesperancinha.ping;
 
-import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 /**
  * Created by joao on 10-1-16.
  */
-public class SwipeAdapter extends FragmentStatePagerAdapter{
+public class SwipeAdapter extends FragmentStatePagerAdapter {
 
     public SwipeAdapter(FragmentManager fm) {
         super(fm);

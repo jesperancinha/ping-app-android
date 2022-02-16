@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.steelzack.ping.R;
 import org.jesperancinha.ping.util.SystemUiHider;
 
@@ -19,7 +21,7 @@ import java.net.UnknownHostException;
 /**
  *
  */
-public class TraceRouteFragment extends android.support.v4.app.Fragment {
+public class TraceRouteFragment extends Fragment {
 
     /**
      * Whether or not the system UI should be auto-hidden after
