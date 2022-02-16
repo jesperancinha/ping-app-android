@@ -6,21 +6,12 @@ buildscript {
     repositories {
         mavenCentral()
     }
-
-    dependencies {
-        classpath 'com.newrelic.agent.android:agent-gradle-plugin:3.264.0'
-    }
 }
 
 repositories {
     mavenCentral()
 }
 
-apply plugin: 'android'
-
-dependencies {
-    compile 'com.newrelic.agent.android:android-agent:3.264.0'
-}
 android {
     compileSdkVersion 31
     buildToolsVersion "19.1.0"
