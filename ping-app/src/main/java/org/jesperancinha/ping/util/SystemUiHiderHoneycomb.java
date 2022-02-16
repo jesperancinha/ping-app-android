@@ -1,4 +1,4 @@
-package com.steelzack.ping.util;;
+package org.jesperancinha.ping.util;;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

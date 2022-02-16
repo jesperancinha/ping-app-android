@@ -1,10 +1,8 @@
-package com.steelzack.ping;
+package org.jesperancinha.ping;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-
+import android.app.Fragment;
+import android.app.FragmentManager;
 /**
  * Created by joao on 10-1-16.
  */

@@ -1,4 +1,4 @@
-package com.steelzack.ping.util;
+package org.jesperancinha.ping.util;
 
 import android.app.Activity;
 import android.os.Build;

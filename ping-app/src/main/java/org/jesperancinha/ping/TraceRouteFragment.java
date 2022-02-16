@@ -1,4 +1,4 @@
-package com.steelzack.ping;
+package org.jesperancinha.ping;
 
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.steelzack.ping.util.SystemUiHider;
+import com.steelzack.ping.R;
+import org.jesperancinha.ping.util.SystemUiHider;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -18,7 +19,7 @@ import java.net.UnknownHostException;
 /**
  *
  */
-public class PingFragment extends android.support.v4.app.Fragment {
+public class TraceRouteFragment extends android.support.v4.app.Fragment {
 
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -67,7 +68,7 @@ public class PingFragment extends android.support.v4.app.Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PingFragment() {
+    public TraceRouteFragment() {
         // Required empty public constructor
     }
 
@@ -80,8 +81,8 @@ public class PingFragment extends android.support.v4.app.Fragment {
      * @return A new instance of fragment PingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PingFragment newInstance(String param1, String param2) {
-        PingFragment fragment = new PingFragment();
+    public static TraceRouteFragment newInstance(String param1, String param2) {
+        TraceRouteFragment fragment = new TraceRouteFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -105,7 +106,7 @@ public class PingFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
 
 
-        View mainView = inflater.inflate(R.layout.fragment_ping_layout, container, false);
+        View mainView = inflater.inflate(R.layout.fragment_trace_route_layout, container, false);
         final View contentView = mainView.findViewById(R.id.fullscreen_content);
 
 
@@ -127,8 +128,15 @@ public class PingFragment extends android.support.v4.app.Fragment {
                 String ipAddress = editText.getText().toString();
 
                 try {
-                    InetAddress inet = InetAddress.getByName(ipAddress);
-                    textResult.setText(String.format("Adress:%s\nHostname:%s", inet.getHostAddress(), inet.getHostName()));
+                    InetAddress[] inets = InetAddress.getAllByName(ipAddress);
+                    final StringBuffer sb = new StringBuffer();
+                    sb.append(String.format("Hostname:%s",ipAddress));
+                    for(InetAddress inet : inets){
+                        sb.append(String.format("\n%s", inet.getHostAddress()));
+                    }
+
+                    textResult.setText(sb.toString());
+
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                     textResult.setText(String.format("Host not found!\n%s", e.getMessage()));
