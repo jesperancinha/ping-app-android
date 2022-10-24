@@ -52,7 +52,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'org.jesperancinha.itf:itf-chartizate-api:5.0.1'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation "androidx.fragment:fragment:1.5.3"
+    implementation "androidx.fragment:fragment:1.5.4"
     implementation group: 'androidx.viewpager2', name: 'viewpager2', version: '1.1.0-beta01'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
     testImplementation 'org.mockito:mockito-core:4.8.1'
