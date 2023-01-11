@@ -49,7 +49,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: tasks.withType(Test)) {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'org.jesperancinha.itf:itf-chartizate-api:5.0.1'
     implementation 'com.android.support:multidex:1.0.3'
     implementation "androidx.fragment:fragment:1.5.5"
