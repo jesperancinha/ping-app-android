@@ -1,4 +1,5 @@
-build:
+b: buildw
+buildw:
 	./gradlew clean build test jacocoTestReport -i
 	gradle
 install-jacococli:
@@ -9,7 +10,7 @@ unpack-reports:
 	java -jar lib/jacococli.jar report ping-app/build/jacoco/testReleaseUnitTest.exec --classfiles ping-app/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoRelease.xml
 	java -jar lib/jacococli.jar report ping-app/build/jacoco/testDebugUnitTest.exec --classfiles ping-app/build/.transforms/*/transformed/out/jars/classes.jar --xml jacoco/jacocoDebug.xml
 upgrade:
-	gradle wrapper --gradle-version 7.5
+	gradle wrapper --gradle-version 8.0
 coverage:
 	./gradlew clean build test jacocoTestReport
 	./gradlew -i
