@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.steelzack.ping.R;
+import org.jesperancinha.ping.R;
 
 import org.jesperancinha.ping.util.SystemUiHider;
 
