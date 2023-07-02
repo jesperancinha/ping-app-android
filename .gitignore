@@ -17,4 +17,4 @@ app/app-release.apk
 .idea
 *.iml
 
-!gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.jar
