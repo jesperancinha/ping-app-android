@@ -9,7 +9,7 @@ class LogData(
 
 object PingolineConnector {
 
-    fun test(ipAddress: String): Result<LogData> {
+    fun ping(ipAddress: String): Result<LogData> {
         val nowStamp = System.currentTimeMillis()
         return kotlin.runCatching {
             val inet = InetAddress.getByName(ipAddress)
