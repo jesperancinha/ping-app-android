@@ -17,4 +17,7 @@ app/app-release.apk
 .idea
 *.iml
 
-gradle/wrapper/gradle-wrapper.jar
+build/gradle/wrapper/gradle-wrapper.jar
+
+# Generated images
+root-icon.png

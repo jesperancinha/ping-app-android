@@ -34,6 +34,12 @@ Please read our [Privacy Policy](Privacy_Policy.md)
 
 ***Under development***
 
+
+## References
+
+-   [Material Theme Builder](https://m3.material.io/theme-builder)
+-   [Android Stop Emulator from Command Line](https://syntaxfix.com/question/12017/android-stop-emulator-from-command-line)
+
 ## About me
 
 <div align="center">
