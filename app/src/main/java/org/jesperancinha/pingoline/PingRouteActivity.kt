@@ -18,6 +18,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -49,6 +53,12 @@ class PingRouteActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
+    var dns by remember {
+        mutableStateOf("")
+    }
+    var results by remember {
+        mutableStateOf("")
+    }
     Column(
         modifier = Modifier
             .background(colorScheme().primary)
@@ -75,7 +85,7 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
                 text = "Place your domain here:",
                 textAlign = TextAlign.Left
             )
-            TextField(value = "", onValueChange = { }, modifier = Modifier.fillMaxWidth())
+            TextField(value = dns, onValueChange = { }, modifier = Modifier.fillMaxWidth())
         }
         Row(
             verticalAlignment = Alignment.Top,
@@ -88,7 +98,7 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
             )
             TextField(
                 enabled = false,
-                value = "",
+                value = results,
                 onValueChange = { }, modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
@@ -101,7 +111,9 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
             Button(onClick = { activity.finish() }, modifier = Modifier.fillMaxWidth(0.5f)) {
                 Text(text = "Back")
             }
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {
+            Button(onClick = {
+                PingolineConnector.traceroute(dns).let { results = it.getOrNull()?.result ?: "" }
+            }, modifier = Modifier.fillMaxWidth()) {
                 Text(text = "Ping Route")
             }
         }

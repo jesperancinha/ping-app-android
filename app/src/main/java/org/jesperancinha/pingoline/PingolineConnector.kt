@@ -30,7 +30,7 @@ object PingolineConnector {
         }
     }
 
-    fun tracerout(ipAddress: String): Result<LogData> {
+    fun traceroute(ipAddress: String): Result<LogData> {
         val nowStamp = System.currentTimeMillis()
         return runCatching {
             val inets = InetAddress.getAllByName(ipAddress)
