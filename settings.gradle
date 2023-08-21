@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-include ':ping-app'
+include ':app'

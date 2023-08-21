@@ -14,14 +14,19 @@ repositories {
 
 android {
 
-    namespace 'org.jesperancinha.ping'
+    namespace 'com.joai.ping2'
 
     defaultConfig {
+        applicationId 'org.joai.ping2'
         compileSdk 33
         minSdkVersion 31
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 211
-        versionName "2.1.1"
+        versionName '2.1.1'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
     buildTypes {
         release {
@@ -31,13 +36,13 @@ android {
     }
 }
 
-
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
     finalizedBy(jacocoTestReport)
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: tasks.withType(Test)) {
+tasks.register('jacocoTestReport', JacocoReport) {
+    dependsOn tasks.withType(Test)
     reports {
         xml.required = true
         csv.required = false
@@ -45,21 +50,24 @@ task jacocoTestReport(type: JacocoReport, dependsOn: tasks.withType(Test)) {
     }
 }
 
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'org.jesperancinha.itf:itf-chartizate-api:5.0.1'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation "androidx.fragment:fragment:1.5.7"
-    implementation group: 'androidx.viewpager2', name: 'viewpager2', version: '1.1.0-beta02'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
-    testImplementation 'org.mockito:mockito-core:5.4.0'
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
-    androidTestImplementation 'org.assertj:assertj-core:3.24.2'
-    androidTestImplementation 'androidx.test:runner:1.5.2'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.fragment:fragment:1.6.1'
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.6.2")
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'org.mockito:mockito-android:5.4.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.5.0'
     androidTestUtil 'androidx.test:orchestrator:1.4.2'
 }

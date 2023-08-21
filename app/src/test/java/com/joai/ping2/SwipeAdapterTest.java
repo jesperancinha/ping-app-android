@@ -1,14 +1,14 @@
-package org.jesperancinha.ping;
+package com.joai.ping2;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class SwipeAdapterTest {
+public class SwipeAdapterTest {
 
     @Test
-    void getItem() {
+    public void getItem() {
         SwipeAdapter swipeAdapter = new SwipeAdapter(new FragmentManager() {
         });
 

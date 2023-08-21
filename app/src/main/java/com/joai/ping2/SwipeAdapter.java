@@ -1,8 +1,11 @@
-package org.jesperancinha.ping;
+package com.joai.ping2;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import java.util.Objects;
 
 /**
  * Created by joao on 10-1-16.
@@ -13,15 +16,17 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
         super(fm);
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        switch (position){
-            case 0: fragment = new PingFragment(); break;
-            case 1: fragment = new TraceRouteFragment(); break;
-            default:break;
+        switch (position) {
+            case 0 -> fragment = new PingFragment();
+            case 1 -> fragment = new TraceRouteFragment();
+            default -> {
+            }
         }
-        return fragment;
+        return Objects.requireNonNull(fragment);
     }
 
     @Override
