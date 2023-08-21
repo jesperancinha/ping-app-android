@@ -8,6 +8,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -49,10 +52,7 @@ fun MatrixSplashScreen(navController: NavHostController) {
 
 @Composable
 fun Splash(alpha: Float) {
-    val colorScheme = when {
-        isSystemInDarkTheme() -> DarkColors
-        else -> LightColors
-    }
+    val colorScheme = colorScheme()
     Box(
         modifier = Modifier
             .background(colorScheme.primary)
