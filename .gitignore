@@ -18,3 +18,5 @@ app/app-release.apk
 *.iml
 
 gradle/wrapper/gradle-wrapper.jar
+
+app-release.aab
