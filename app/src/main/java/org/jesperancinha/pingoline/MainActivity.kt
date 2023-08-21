@@ -9,7 +9,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import org.jesperancinha.pingoline.ui.theme.PingolineTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,30 +20,38 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PingolineTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                val navController = rememberNavController()
+                SetupNavGraph(navController = navController, this)
             }
         }
     }
 }
 
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
+fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) {
+    NavHost(
+        navController = navController,
+        startDestination = Screen.Splash.route
+    ) {
+        composable(route = Screen.Splash.route) {
+            MatrixSplashScreen(navController = navController)
+        }
+        composable(route = Screen.Home.route) {
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.background
+            ) {
+                MainMenu("Android", mainActivity = mainActivity)
+            }
+        }
+    }
+}
+
+
+@Composable
+fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActivity) {    Text(
         text = "Hello $name!",
         modifier = modifier
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PingolineTheme {
-        Greeting("Android")
-    }
 }
