@@ -3,7 +3,7 @@ package com.joai.ping2;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SwipeAdapterTest {
 
