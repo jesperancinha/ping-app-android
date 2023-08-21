@@ -1,5 +1,6 @@
 package org.jesperancinha.pingoline
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -83,7 +85,6 @@ fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
         verticalArrangement = Arrangement.Center,
     ) {
         Row(
-            verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
@@ -124,6 +125,8 @@ fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
         ) {
             Button(
                 onClick = {
+                    val navigate = Intent(mainActivity, PingActivity::class.java)
+                    startActivity(mainActivity, navigate, null)
                 },
                 modifier = Modifier
                     .testTag(PING_SUBMIT)
@@ -136,6 +139,8 @@ fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
         ) {
             Button(
                 onClick = {
+                    val navigate = Intent(mainActivity, PingRouteActivity::class.java)
+                    startActivity(mainActivity, navigate, null)
                 },
                 modifier = Modifier
                     .testTag(TRACEROUTE_SUBMIT)

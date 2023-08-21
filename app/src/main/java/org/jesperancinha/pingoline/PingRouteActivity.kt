@@ -98,7 +98,7 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
             verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Center
         ) {
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth(0.5f)) {
+            Button(onClick = { activity.finish() }, modifier = Modifier.fillMaxWidth(0.5f)) {
                 Text(text = "Back")
             }
             Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {
