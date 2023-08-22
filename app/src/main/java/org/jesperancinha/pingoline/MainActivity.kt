@@ -100,7 +100,7 @@ fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "You can ping and trace the dns of your preference",
+                text = "You can ping and trace to internal domain",
                 textAlign = TextAlign.Center,
             )
 

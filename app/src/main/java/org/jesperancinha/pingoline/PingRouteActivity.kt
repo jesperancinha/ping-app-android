@@ -33,8 +33,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jesperancinha.pingoline.ui.theme.PingolineTheme
+import kotlin.time.Duration.Companion.seconds
 
 
 class PingRouteActivity : ComponentActivity() {
@@ -74,6 +76,9 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
     }
     var results by remember {
         mutableStateOf("Try now!")
+    }
+    var ready by remember {
+        mutableStateOf(true)
     }
     Column(
         modifier = Modifier
@@ -152,11 +157,16 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
             Button(onClick = { activity.finish() }, modifier = Modifier.fillMaxWidth(0.5f)) {
                 Text(text = "Back")
             }
-            Button(onClick = {
-                MainScope().launch {
-                    results =
-                        PingolineConnector.traceroute(dns).let { it.getOrNull()?.result ?: "" }
-                }
+            Button(
+                enabled = ready,
+                onClick = {
+                    MainScope().launch {
+                        ready = false
+                        results =
+                            PingolineConnector.traceroute(dns).let { it.getOrNull()?.result ?: "" }
+                        delay(5.seconds)
+                        ready = true
+                    }
             }, modifier = Modifier
                 .fillMaxWidth()
                 .testTag(TRACE_RESOLVE_SUBMIT)) {
