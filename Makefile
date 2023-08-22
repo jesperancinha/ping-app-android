@@ -30,6 +30,7 @@ coverage:
 	./gradlew clean build test jacocoTestReport
 	./gradlew -i
 dependencies:
+	if [[ ! -f gradle/wrapper/gradle-wrapper.jar ]]; then gradle wrapper; fi;
 	./gradlew androidDependencies
 lint:
 	./gradlew lint test
