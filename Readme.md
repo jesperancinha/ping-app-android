@@ -21,14 +21,22 @@
 
 ---
 
-Please read our [Privacy Policy](Privacy_Policy.md)
+An evolution of the previous Ping app.
 
-![alt text](ping-app/src/main/res/drawable-xxxhdpi/ic_launcher.png "Logo xxxhdpi")
-![alt text](ping-app/src/main/res/drawable-xxhdpi/ic_launcher.png "Logo xxhdpi")
-![alt text](ping-app/src/main/res/drawable-xhdpi/ic_launcher.png "Logo xhdpi")
-![alt text](ping-app/src/main/res/drawable-hdpi/ic_launcher.png "Logo hdpi")
-![alt text](ping-app/src/main/res/drawable-mdpi/ic_launcher.png "Logo mdpi")
-![alt text](ping-app/src/main/res/drawable-ldpi/ic_launcher.png "Logo ldpi")
+Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
+
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher.webp "Pingoline")
+
+![alt text](app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-hdpi/ic_launcher_round.webp "Pingoline")
+![alt text](app/src/main/res/mipmap-mdpi/ic_launcher_round.webp "Pingoline")
+
 
 ## Status
 
