@@ -4,6 +4,9 @@ GRADLE_VERSION ?= 8.3
 b: buildw
 test:
 	./gradlew test
+reset-start-emulator-linux:
+	#~/Android/Sdk/emulator/emulator @Nexus_S_API_34 -wipe-data
+	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator @{} -wipe-data
 start-emulator-linux:
 	~/Android/Sdk/emulator/emulator -list-avds tail -1 | xargs -I {} ~/Android/Sdk/emulator/emulator -avd {}
 start-emulator-linux-no-window:
@@ -27,6 +30,7 @@ coverage:
 	./gradlew clean build test jacocoTestReport
 	./gradlew -i
 dependencies:
+	if [[ ! -f gradle/wrapper/gradle-wrapper.jar ]]; then gradle wrapper; fi;
 	./gradlew androidDependencies
 lint:
 	./gradlew lint test
@@ -64,4 +68,3 @@ manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
 	adb uninstall org.jesperancinha.ping
-
