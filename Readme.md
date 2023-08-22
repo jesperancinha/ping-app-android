@@ -37,6 +37,7 @@ Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 ![alt text](app/src/main/res/mipmap-hdpi/ic_launcher_round.webp "Pingoline")
 ![alt text](app/src/main/res/mipmap-mdpi/ic_launcher_round.webp "Pingoline")
 
+---
 
 ## My Android apps
 
@@ -50,6 +51,7 @@ Please read my privacy policy listed in [Privacy Policy](Privacy_Policy.md).
 
 </div>
 
+---
 
 ## Status
 
