@@ -27,7 +27,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import org.jesperancinha.pingoline.ui.theme.PingolineTheme
+
 
 class PingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +60,7 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
         mutableStateOf("")
     }
     var results by remember {
-        mutableStateOf("")
+        mutableStateOf("Try now!")
     }
     Column(
         modifier = Modifier
@@ -124,7 +127,9 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
                 Text(text = "Back")
             }
             Button(onClick = {
-                PingolineConnector.ping(dns).let { results = it.getOrNull()?.result ?: "" }
+                MainScope().launch {
+                    results = PingolineConnector.ping(dns).let { it.getOrNull()?.result ?: "" }
+                }
             }, modifier = Modifier.fillMaxWidth()) {
                 Text(text = "Ping")
             }

@@ -2,7 +2,7 @@ package org.jesperancinha.pingoline
 
 import java.net.InetAddress
 
-class LogData(
+data class LogData(
     val result: String,
     val comment: String = ""
 )
@@ -15,17 +15,13 @@ object PingolineConnector {
             val inet = InetAddress.getByName(ipAddress)
             val textResult = inet.run { "Address:${hostAddress}\nHostname:${hostName}" }
             val endStamp = System.currentTimeMillis()
-            val comment =
-                String.format(
-                    "Ping lasted %d milliseconds",
-                    endStamp - nowStamp
-                )
+            val comment ="Ping lasted ${endStamp - nowStamp} milliseconds"
             LogData(
                 result = textResult,
                 comment = comment
             )
         }.onFailure {
-            val textResult = String.format("Host not found!\n%s", it.message)
+            val textResult = "Host not found!\n${it.message}"
             LogData(result = textResult)
         }
     }
