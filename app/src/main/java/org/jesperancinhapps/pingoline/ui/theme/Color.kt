@@ -1,4 +1,4 @@
-package org.jesperancinha.pingoline.ui.theme
+package org.jesperancinhapps.pingoline.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF9B432C)

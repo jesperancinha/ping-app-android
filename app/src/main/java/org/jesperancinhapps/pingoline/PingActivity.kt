@@ -1,4 +1,4 @@
-package org.jesperancinha.pingoline
+package org.jesperancinhapps.pingoline
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.jesperancinha.pingoline.ui.theme.PingolineTheme
+import org.jesperancinhapps.pingoline.ui.theme.PingolineTheme
 import kotlin.time.Duration.Companion.seconds
 
 

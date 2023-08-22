@@ -1,4 +1,4 @@
-package org.jesperancinha.pingoline
+package org.jesperancinhapps.pingoline
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -27,9 +27,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import org.jesperancinha.pingoline.ui.theme.DarkColors
-import org.jesperancinha.pingoline.ui.theme.LightColors
-import org.jesperancinha.pingoline.ui.theme.PingolineTheme
+import org.jesperancinhapps.pingoline.ui.theme.DarkColors
+import org.jesperancinhapps.pingoline.ui.theme.LightColors
+import org.jesperancinhapps.pingoline.ui.theme.PingolineTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,16 +1,12 @@
-package org.jesperancinha.pingoline
+package org.jesperancinhapps.pingoline
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,12 +19,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
-import org.jesperancinha.pingoline.ui.theme.DarkColors
-import org.jesperancinha.pingoline.ui.theme.LightColors
+import org.jesperancinhapps.pingoline.R
 
 
 sealed class Screen(val route: String) {
-    object Splash:Screen("splash_screen")
+    object Splash: Screen("splash_screen")
     object Home: Screen("home_screen")
 }
 @Composable
