@@ -1,4 +1,4 @@
-# Ping App
+# Pingoline App
 
 ---
 
