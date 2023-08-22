@@ -3,6 +3,7 @@ package org.jesperancinha.pingoline
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.StrictMode
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -32,6 +33,8 @@ import org.jesperancinha.pingoline.ui.theme.PingolineTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val policy = StrictMode.ThreadPolicy.Builder().permitNetwork().build()
+        StrictMode.setThreadPolicy(policy)
         super.onCreate(savedInstanceState)
         setContent {
             PingolineTheme {
@@ -72,9 +75,9 @@ fun SetupNavGraph(navController: NavHostController, mainActivity: MainActivity) 
     }
 }
 
-private const val PING_SUBMIT = "ping-submit"
+const val PING_SUBMIT = "ping-submit"
 
-private const val TRACEROUTE_SUBMIT = "traceroute-submit"
+const val TRACE_SUBMIT = "traceroute-submit"
 
 @Composable
 fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActivity) {
@@ -143,7 +146,7 @@ fun MainMenu(name: String, modifier: Modifier = Modifier, mainActivity: MainActi
                     startActivity(mainActivity, navigate, null)
                 },
                 modifier = Modifier
-                    .testTag(TRACEROUTE_SUBMIT)
+                    .testTag(TRACE_SUBMIT)
             ) {
                 Text(text = "Traceroute")
             }

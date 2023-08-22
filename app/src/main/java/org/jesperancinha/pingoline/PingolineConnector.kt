@@ -21,7 +21,7 @@ object PingolineConnector {
                 comment = comment
             )
         }.onFailure {
-            val textResult = "Host not found!\n${it.message}"
+            val textResult = "Host not found!\n${it.stackTraceToString()}"
             LogData(result = textResult)
         }
     }

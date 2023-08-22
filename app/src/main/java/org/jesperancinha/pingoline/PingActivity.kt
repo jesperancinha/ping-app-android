@@ -9,9 +9,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
@@ -24,12 +26,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jesperancinha.pingoline.ui.theme.PingolineTheme
+import kotlin.time.Duration.Companion.seconds
 
 
 class PingActivity : ComponentActivity() {
@@ -53,6 +60,12 @@ class PingActivity : ComponentActivity() {
     }
 }
 
+const val PING_DNS_INPUT = "ping-dns-input"
+
+const val PING_RESOLVE_SUBMIT = "ping-resolve-submit"
+
+const val PING_DNS_RESULT = "ping-dns-result"
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PingForm(name: String, intent: Intent, activity: PingActivity) {
@@ -61,6 +74,9 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
     }
     var results by remember {
         mutableStateOf("Try now!")
+    }
+    var ready by remember {
+        mutableStateOf(true)
     }
     Column(
         modifier = Modifier
@@ -74,7 +90,9 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                modifier = Modifier.align(alignment = Alignment.Top),
+                modifier = Modifier
+                    .align(alignment = Alignment.Top)
+                    .fillMaxHeight(0.1f),
                 text = "Welcome to Pingoline",
                 textAlign = TextAlign.Center,
             )
@@ -86,16 +104,26 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = "Place your domain here:",
-                textAlign = TextAlign.Left
+                textAlign = TextAlign.Left,
             )
         }
         Row(
             verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(all = 0.dp)
         ) {
-            TextField(value = dns, onValueChange = {
-                dns = it
-            }, modifier = Modifier.fillMaxWidth())
+            TextField(
+                value = dns, onValueChange = {
+                    dns = it
+                },
+                textStyle = TextStyle(fontSize = 20.sp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.2f)
+                    .testTag(PING_DNS_INPUT)
+                    .defaultMinSize(minHeight = 40.dp)
+                    .padding(all = 0.dp)
+            )
         }
         Row(
             verticalAlignment = Alignment.Top,
@@ -111,12 +139,15 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
             verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Center,
         ) {
-            TextField(
-                enabled = false,
-                value = results,
-                onValueChange = { }, modifier = Modifier
+            Text(
+                color = colorScheme().secondary,
+                modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp)
+                    .fillMaxHeight(0.4f)
+                    .background(colorScheme().primaryContainer)
+                    .testTag(PING_DNS_RESULT),
+                text = results,
+                textAlign = TextAlign.Left
             )
         }
         Row(
@@ -126,11 +157,20 @@ fun PingForm(name: String, intent: Intent, activity: PingActivity) {
             Button(onClick = { activity.finish() }, modifier = Modifier.fillMaxWidth(0.5f)) {
                 Text(text = "Back")
             }
-            Button(onClick = {
-                MainScope().launch {
-                    results = PingolineConnector.ping(dns).let { it.getOrNull()?.result ?: "" }
-                }
-            }, modifier = Modifier.fillMaxWidth()) {
+            Button(
+                enabled = ready,
+                onClick = {
+                    MainScope().launch {
+                        ready = false
+                        results =
+                            PingolineConnector.ping(dns).let { it.getOrNull()?.result ?: "" }
+                        delay(5.seconds)
+                        ready = true
+                    }
+                }, modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag(PING_RESOLVE_SUBMIT)
+            ) {
                 Text(text = "Ping")
             }
         }
