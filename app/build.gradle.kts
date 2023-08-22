@@ -5,11 +5,11 @@ plugins {
     id("jacoco")
 }
 android {
-    namespace = "org.jesperancinha.pingoline"
+    namespace = "org.jesperancinhapps.pingoline"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "org.jesperancinha.pingoline"
+        applicationId = "org.jesperancinhapps.pingoline"
         minSdk = 33
         targetSdk = 34
         versionCode = 1

@@ -1,4 +1,4 @@
-package org.jesperancinha.pingoline
+package org.jesperancinhapps.pingoline
 
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -32,7 +32,7 @@ class ExampleInstrumentedTest {
     fun  `should test app contex`() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("org.jesperancinha.pingoline", appContext.packageName)
+        assertEquals("org.jesperancinhapps.pingoline", appContext.packageName)
     }
 
     @Test

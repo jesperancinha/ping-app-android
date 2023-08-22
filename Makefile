@@ -67,4 +67,4 @@ manual-install:
 manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
-	adb uninstall org.jesperancinha.ping
+	adb uninstall org.jesperancinhapps.ping
