@@ -3,7 +3,9 @@ name: ping-app-android-pull_request
 on:
   pull_request:
     branches: [ master ]
-
+  push:
+    branches-ignore:
+      - master
 jobs:
   build:
 
