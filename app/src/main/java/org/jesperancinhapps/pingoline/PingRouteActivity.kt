@@ -56,6 +56,7 @@ class PingRouteActivity : ComponentActivity() {
 
     @Deprecated("Deprecated in Java", ReplaceWith("finish()"))
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 }
