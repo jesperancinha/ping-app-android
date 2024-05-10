@@ -69,7 +69,7 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:2024.05.00"))
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.android.support:multidex:1.0.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
