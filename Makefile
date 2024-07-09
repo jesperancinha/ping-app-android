@@ -70,3 +70,8 @@ manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
 	adb uninstall org.jesperancinhapps.ping
+deps-plugins-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
+deps-compose-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/jetPackComposeUpdatesOne.sh | bash
+deps-quick-update: deps-compose-update deps-plugins-update
