@@ -1,0 +1,7 @@
+[versions]
+kotlin = "2.0.0"
+
+[plugins]
+com-android-application = { id = "com.android.application", version="8.5.0" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

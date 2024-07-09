@@ -2,7 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jesperancinha.plugins.omni") version "0.3.1"
-    id("jacoco")
+    jacoco
+    alias(libs.plugins.compose.compiler)
 }
 android {
     namespace = "org.jesperancinhapps.pingoline"
