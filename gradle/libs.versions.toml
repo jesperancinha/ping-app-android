@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 
 [plugins]
 org-jesperancinha-plugins-omni = { id = "org.jesperancinha.plugins.omni", version="0.3.1" }
