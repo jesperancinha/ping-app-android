@@ -1,4 +1,4 @@
-package org.jesperancinhapps.pingoline
+package nl.joaofilipesabinoesperancinha.pingoline
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -35,11 +35,11 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.jesperancinhapps.pingoline.ui.theme.PingolineTheme
+import nl.joaofilipesabinoesperancinha.pingoline.ui.theme.PingolineTheme
 import kotlin.time.Duration.Companion.seconds
 
 
-class PingRouteActivity : ComponentActivity() {
+class PingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -48,7 +48,7 @@ class PingRouteActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = colorScheme().background
                 ) {
-                    PingRouteForm("Android", intent = intent, activity = this)
+                    PingForm("Android", intent = intent, activity = this)
                 }
             }
         }
@@ -61,17 +61,15 @@ class PingRouteActivity : ComponentActivity() {
     }
 }
 
+const val PING_DNS_INPUT = "ping-dns-input"
 
-const val TRACE_DNS_INPUT = "trace-dns-input"
+const val PING_RESOLVE_SUBMIT = "ping-resolve-submit"
 
-const val TRACE_RESOLVE_SUBMIT = "trace-resolve-submit"
-
-const val TRACE_DNS_RESULT = "trace-dns-result"
-
+const val PING_DNS_RESULT = "ping-dns-result"
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
+fun PingForm(name: String, intent: Intent, activity: PingActivity) {
     var dns by remember {
         mutableStateOf("")
     }
@@ -107,12 +105,13 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = "Place your domain here:",
-                textAlign = TextAlign.Left
+                textAlign = TextAlign.Left,
             )
         }
         Row(
             verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(all = 0.dp)
         ) {
             TextField(
                 value = dns, onValueChange = {
@@ -122,7 +121,7 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.2f)
-                    .testTag(TRACE_DNS_INPUT)
+                    .testTag(PING_DNS_INPUT)
                     .defaultMinSize(minHeight = 40.dp)
                     .padding(all = 0.dp)
             )
@@ -141,14 +140,15 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
             verticalAlignment = Alignment.Top,
             horizontalArrangement = Arrangement.Center,
         ) {
-            TextField(
-                enabled = false,
-                value = results,
-                onValueChange = { }, modifier = Modifier
+            Text(
+                color = colorScheme().secondary,
+                modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.4f)
-                    .background(colorScheme().background)
-                    .testTag(TRACE_DNS_RESULT)
+                    .background(colorScheme().primaryContainer)
+                    .testTag(PING_DNS_RESULT),
+                text = results,
+                textAlign = TextAlign.Left
             )
         }
         Row(
@@ -164,14 +164,15 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
                     MainScope().launch {
                         ready = false
                         results =
-                            PingolineConnector.traceroute(dns).let { it.getOrNull()?.result ?: "" }
+                            PingolineConnector.ping(dns).let { it.getOrNull()?.result ?: "" }
                         delay(5.seconds)
                         ready = true
                     }
-            }, modifier = Modifier
-                .fillMaxWidth()
-                .testTag(TRACE_RESOLVE_SUBMIT)) {
-                Text(text = "PingRoute")
+                }, modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag(PING_RESOLVE_SUBMIT)
+            ) {
+                Text(text = "Ping")
             }
         }
     }
@@ -180,12 +181,12 @@ fun PingRouteForm(name: String, intent: Intent, activity: PingRouteActivity) {
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun PingRouteFormNightDemo() {
-    PingRouteForm("android", Intent(), PingRouteActivity())
+fun PingFormNightDemo() {
+    PingForm("android", Intent(), PingActivity())
 }
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
-fun PingRouteFormDemo() {
-    PingRouteForm("android", Intent(), PingRouteActivity())
+fun PingFormDemo() {
+    PingForm("android", Intent(), PingActivity())
 }

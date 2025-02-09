@@ -6,11 +6,11 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 android {
-    namespace = "org.jesperancinhapps.pingoline"
+    namespace = "nl.joaofilipesabinoesperancinha.pingoline"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "org.jesperancinhapps.pingoline"
+        applicationId = "nl.joaofilipesabinoesperancinha.pingoline"
         minSdk = 35
         targetSdk = 35
         versionCode = 1

@@ -1,4 +1,4 @@
-package org.jesperancinhapps.pingoline.ui.theme
+package nl.joaofilipesabinoesperancinha.pingoline.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

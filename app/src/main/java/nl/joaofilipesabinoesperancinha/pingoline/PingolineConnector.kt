@@ -1,4 +1,4 @@
-package org.jesperancinhapps.pingoline
+package nl.joaofilipesabinoesperancinha.pingoline
 
 import java.net.InetAddress
 

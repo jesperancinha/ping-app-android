@@ -1,4 +1,4 @@
-package org.jesperancinhapps.pingoline
+package nl.joaofilipesabinoesperancinha.pingoline
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState
@@ -19,7 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
-import org.jesperancinhapps.pingoline.R
+import nl.joaofilipesabinoesperancinha.pingoline.R
 
 
 sealed class Screen(val route: String) {

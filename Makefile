@@ -69,7 +69,7 @@ manual-install:
 manual-deploy: manual-install
 deploy: manual-deploy
 undeploy:
-	adb uninstall org.jesperancinhapps.ping
+	adb uninstall nl.joaofilipesabinoesperancinha.ping
 deps-plugins-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash -s -- $(PARAMS)
 deps-compose-update:

@@ -1,4 +1,4 @@
-package org.jesperancinhapps.pingoline.ui.theme
+package nl.joaofilipesabinoesperancinha.pingoline.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
