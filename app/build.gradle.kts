@@ -7,12 +7,12 @@ plugins {
 }
 android {
     namespace = "nl.joaofilipesabinoesperancinha.pingoline"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "nl.joaofilipesabinoesperancinha.pingoline"
-        minSdk = 35
-        targetSdk = 35
+        minSdk = 36
+        targetSdk = 36
         versionCode = 1
         versionName = "2.0.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
