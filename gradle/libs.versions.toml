@@ -1,8 +1,8 @@
 [versions]
-kotlin = "2.2.10"
+kotlin = "2.2.20"
 
 [plugins]
 org-jesperancinha-plugins-omni = { id = "org.jesperancinha.plugins.omni", version="0.4.5" }
-com-android-application = { id = "com.android.application", version="8.12.1" }
+com-android-application = { id = "com.android.application", version="8.13.0" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
