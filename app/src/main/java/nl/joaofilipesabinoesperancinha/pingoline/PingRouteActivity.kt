@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -42,22 +43,22 @@ import kotlin.time.Duration.Companion.seconds
 class PingRouteActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Register back press callback
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
         setContent {
             PingolineTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = colorScheme().background
                 ) {
-                    PingRouteForm("Android", intent = intent, activity = this)
+                    PingRouteForm("Android", intent = intent, activity = this@PingRouteActivity)
                 }
             }
         }
-    }
-
-    @Deprecated("Deprecated in Java", ReplaceWith("finish()"))
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
     }
 }
 
